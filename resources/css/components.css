@@ -1,0 +1,53 @@
+/* FONTS */
+
+.decor-regular {
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  opacity: 0.9;
+}
+
+/* NAVIGATION */
+
+
+
+/* TAGS */
+.tag {
+    @apply flex w-fit items-center gap-2 bg-orange-700/8 px-4 py-1 rounded-2xl text-sm text-orange-900 hover:bg-orange-700/15 cursor-pointer
+}
+
+.tag--active {
+    @apply bg-orange-500/50
+}
+
+.tag svg {
+    @apply fill-red-500
+}
+
+
+
+.label {
+    @apply text-sm text-gray-400;
+}
+
+
+/* INPUTS */
+
+input{
+    @apply p-3 bg-gray-200 rounded-md outline-0
+}
+
+.input--invisible {
+    @apply px-2 py-1 bg-inherit
+}
+
+
+
+/* BUTTONS */
+.button {
+    @apply bg-orange-400 hover:bg-orange-500 px-3 py-1 w-fit rounded-md  text-sm font-semibold cursor-pointer text-orange-900 active:scale-95
+}
+
+.button--big {
+    @apply w-20 h-13
+}
