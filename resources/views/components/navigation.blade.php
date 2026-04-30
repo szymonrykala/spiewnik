@@ -30,7 +30,7 @@ $nav_item_svg = 'fill-orange-700 group-hover:scale-115 transition-transform';
             </a>
         </li>
         <li class="{{ $nav_item }}">
-            <a href="/songs/search" wire:naviagate class="{{ $nav_item_a }}">
+            <a href="/songs" wire:navigate class="{{ $nav_item_a }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                     class="{{ $nav_item_svg }}">
                     <path
@@ -42,7 +42,7 @@ $nav_item_svg = 'fill-orange-700 group-hover:scale-115 transition-transform';
             </a>
         </li>
         <li class="{{ $nav_item }}">
-            <a href="/logout" wire:naviagate class="{{ $nav_item_a }}">
+            <a href="/logout" wire:navigate class="{{ $nav_item_a }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                     class="{{ $nav_item_svg }}">
                     <path

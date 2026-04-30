@@ -7,10 +7,14 @@
     opacity: 0.9;
 }
 
-/* NAVIGATION */
+/* MAIN */
 
 .error {
     @apply text-sm text-red-700
+}
+
+.container {
+    @apply max-w-5xl mx-auto
 }
 
 
