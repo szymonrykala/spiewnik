@@ -1,8 +1,8 @@
-<div class="container mx-auto flex flex-col  max-w-5xl">
+<div class="container flex flex-col">
 
     <div class="flex justify-between items-center">
         <h1 class="decor-regular text-5xl text-left my-7">Piosenki:</h1>
-        <a href="create" wire:navigate class="rounded-md bg-gray-200 size-fit p-2 hover:backdrop-brightness-90">
+        <a href="create" wire:navigate class="rounded-md bg-gray-200 size-fit p-2 hover:bg-gray-300/80">
             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3"
                 class="fill-orange-700/70">
                 <path

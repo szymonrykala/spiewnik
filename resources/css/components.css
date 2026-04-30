@@ -40,8 +40,8 @@
 
 /* INPUTS */
 
-input {
-    @apply p-3 bg-gray-200 rounded-md outline-0
+input, textarea {
+    @apply p-3 bg-gray-200 rounded-md outline-0 text-orange-950
 }
 
 .input--invisible {
