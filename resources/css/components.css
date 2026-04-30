@@ -1,23 +1,26 @@
 /* FONTS */
 
 .decor-regular {
-  font-family: "Pattaya", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  opacity: 0.9;
+    font-family: "Pattaya", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.9;
 }
 
 /* NAVIGATION */
 
+.error {
+    @apply text-sm text-red-700
+}
 
 
 /* TAGS */
 .tag {
-    @apply flex w-fit items-center gap-2 bg-orange-700/8 px-4 py-1 rounded-2xl text-sm text-orange-900 hover:bg-orange-700/15 cursor-pointer
+    @apply flex w-fit items-center gap-2 bg-orange-700/10 px-4 py-1 rounded-2xl text-sm text-orange-900 hover:backdrop-brightness-90 cursor-pointer
 }
 
 .tag--active {
-    @apply bg-orange-500/50
+    @apply bg-orange-700/70 text-orange-100
 }
 
 .tag svg {
@@ -33,7 +36,7 @@
 
 /* INPUTS */
 
-input{
+input {
     @apply p-3 bg-gray-200 rounded-md outline-0
 }
 
@@ -45,9 +48,14 @@ input{
 
 /* BUTTONS */
 .button {
-    @apply bg-orange-400 hover:bg-orange-500 px-3 py-1 w-fit rounded-md  text-sm font-semibold cursor-pointer text-orange-900 active:scale-95
+    @apply bg-orange-700/70 hover:backdrop-brightness-90 px-3 py-1 w-fit rounded-md text-sm font-semibold cursor-pointer text-orange-50 active:scale-95
 }
 
 .button--big {
     @apply w-20 h-13
+}
+
+
+nav>span>button, nav>span span {
+    @apply text-sm bg-orange-700/70 border-0 text-orange-50
 }

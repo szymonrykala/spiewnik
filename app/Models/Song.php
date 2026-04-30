@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    protected $fillable = ['title', 'description', 'links', 'is_public'];
+    protected $fillable = ['title', 'lyrics', 'yt_link', 'ms_link', 'photo_url', 'is_public'];
 
     protected $casts = [
-        'links' => 'array',
         'is_public' => 'boolean',
     ];
 

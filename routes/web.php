@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::group([], function() {
     Route::livewire('/', 'pages::main');
     Route::livewire('/songs/search', 'pages::songs.search');
-    Route::livewire('/songs/create', 'pages::songs.create');
+    Route::livewire('/songs/create', 'pages::songs.view');
     Route::livewire('/songs/{song}', 'pages::songs.view');
 });
 

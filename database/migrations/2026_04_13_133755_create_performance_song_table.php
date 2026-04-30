@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('performance', function (Blueprint $table) {
+        Schema::create('performances', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('performance_song', function (Blueprint $table) {
+        Schema::create('performance_songs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('performance_id')->constrained()->cascadeOnDelete();
             $table->foreignId('song_id')->constrained()->cascadeOnDelete();
@@ -42,6 +42,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('performance_song');
+        Schema::dropIfExists('performance_songs');
+        Schema::dropIfExists('performances');
+        Schema::dropIfExists('files');
     }
 };

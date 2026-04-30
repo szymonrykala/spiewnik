@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('song', function (Blueprint $table) {
+        Schema::create('songs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->json('links')->nullable();
+            $table->string('title')->unique();
+            $table->text('lyrics')->nullable();
+            $table->string('yt_link')->nullable();
+            $table->string('ms_link')->nullable();
+            $table->string('photo_url')->nullable();
             $table->boolean('is_public')->default(true);
             $table->foreignId('updated_by')
                 ->nullable()
@@ -25,16 +27,16 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('tag', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('parent_id')->nullable()->constrained('tag')->nullOnDelete();
+            $table->string('name')->unique();
+            $table->foreignId('parent_id')->nullable()->constrained('tags')->nullOnDelete();
             $table->timestamps();
         });
 
         Schema::create('song_tag', function (Blueprint $table) {
-            $table->foreignId('song_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('song_id')->constrained('songs')->cascadeOnDelete();
+            $table->foreignId('tag_id')->constrained('tags')->cascadeOnDelete();
 
             $table->primary(['song_id', 'tag_id']);
         });
@@ -46,5 +48,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('song_tag');
+        Schema::dropIfExists('tags');
+        Schema::dropIfExists('songs');
     }
 };

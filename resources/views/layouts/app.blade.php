@@ -9,7 +9,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    @stack('js')
+    @stack('head')
 
     @livewireStyles
 </head>
