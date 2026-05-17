@@ -35,7 +35,7 @@ class Song extends Model
 
     public function performances()
     {
-        return $this->belongsToMany(Performance::class)
+        return $this->belongsToMany(Performance::class, "performance_songs")
             ->withPivot(['position', 'target_date'])
             ->withTimestamps();
     }

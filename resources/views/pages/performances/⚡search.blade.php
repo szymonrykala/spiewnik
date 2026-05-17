@@ -10,13 +10,13 @@ new class extends Component {
     #[Computed]
     public function futurePerformances()
     {
-        return Performance::where('performance_date', '>', now())->orderBy('performance_date', 'asc')->simplePaginate(5);
+        return Performance::where('performance_date', '>', now())->orderBy('performance_date', 'asc')->simplePaginate(3);
     }
 
     #[Computed]
     public function pastPerformances()
     {
-        return Performance::where('performance_date', '<', now())->orderBy('performance_date', 'desc')->simplePaginate(10);
+        return Performance::where('performance_date', '<', now())->orderBy('performance_date', 'desc')->simplePaginate(12);
     }
 };
 ?>
@@ -25,14 +25,18 @@ new class extends Component {
     <div class="flex justify-between items-center">
         <h1 class="decor-regular text-5xl text-left my-7">Występy:</h1>
 
-        <livewire:create-performance :show="$showCreateModal" />
+        <a wire:navigate href="/performances/create">
+        <span class="text-5xl block text-orange-700 hover:scale-105 transition-transform">
+                ⊕
+            </span>
+        </a>
     </div>
 
     <div>
-        <h2 class="text-3xl label text-left mb-7">Przyszłe występy:</h2>
+        <h2 class="text-3xl label text-left mb-3">Przyszłe występy:</h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($this->futurePerformances as $performance)
-                <li class="rounded-md bg-white px-4 py-3 group">
+                <li class="rounded-md bg-gray-100 px-4 py-3 group">
                     <div class="flex flex-col gap-1">
                         <h3 class="text-3xl decor-regular">
                             <span class="text-orange-800">
@@ -58,10 +62,10 @@ new class extends Component {
     <hr class="text-orange-800/30 my-10">
 
     <div>
-        <h2 class="text-3xl label text-left mb-7">Minione występy:</h2>
+        <h2 class="text-3xl label text-left mb-3">Minione występy:</h2>
         <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($this->pastPerformances as $performance)
-                <li class="rounded-md bg-white opacity-40 px-4 py-3 group">
+                <li class="rounded-md bg-gray-100 opacity-50 px-4 py-3 group">
                     <div class="flex flex-col gap-1">
                         <h3 class="text-3xl decor-regular">
                             <span class="text-orange-800">

@@ -14,7 +14,7 @@ class Performance extends Model
 
     public function songs()
     {
-        return $this->belongsToMany(Song::class)
+        return $this->belongsToMany(Song::class, "performance_songs")
             ->withPivot(['position', 'target_date'])
             ->orderBy('pivot_position');
     }

@@ -40,7 +40,8 @@
 
 /* INPUTS */
 
-input, textarea {
+.input,
+.textarea {
     @apply p-3 bg-gray-200 rounded-md outline-0 text-orange-950
 }
 
@@ -62,4 +63,20 @@ input, textarea {
 
 nav>span>button, nav>span span {
     @apply text-sm bg-orange-700/70 border-0 text-orange-50
+}
+
+.rich-editor p {
+    @apply py-1
+}
+
+.rich-editor blockquote {
+    @apply border-l-3 border-orange-700 pl-3 py-1
+}
+
+.rich-editor ul {
+    @apply list-disc ml-6
+}
+
+.rich-editor ol {
+    @apply list-decimal ml-6
 }

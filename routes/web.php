@@ -14,6 +14,7 @@ Route::group([], function () {
 
     Route::prefix('/performances')->group(function () {
         Route::livewire('/', 'pages::performances.search');
+        Route::livewire('/create', 'pages::performances.view');
         Route::livewire('/{performance}', 'pages::performances.view');
     });
 

@@ -21,8 +21,8 @@ new class extends Component
     class="flex flex-col gap-3 bg-white p-4 shadow-lg rounded-md w-80 mx-auto"
      >
         <h2 class="text-center text-4xl my-4 decor-regular">Zaloguj się</h2>
-        <input type="email" wire:model="email" placeholder="Twój email">
-        <input type="password" wire:model="password" placeholder="Wpisz hasło">
+        <input type="email" wire:model="email" class="input" placeholder="Twój email">
+        <input type="password" wire:model="password" class="input"  placeholder="Wpisz hasło">
 
         <button type="submit" class="button mx-auto">Zaloguj</button>
     </form>
