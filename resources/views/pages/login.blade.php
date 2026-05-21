@@ -1,29 +1,31 @@
-<?php
+@extends('layouts.app', ['title' => 'Śpiewnik - logowanie'])
 
-use Livewire\Component;
+@section('content')
+    <div class="flex justify-center items-center h-[70vh]">
 
-new class extends Component
-{
-    public string $password = '';
-    public string $email = '';
+        <div class="space-y-10 flex flex-col items-center bg-gray-100 rounded-md shadow-xl p-10">
+            <h1 class="flex flex-col items-center md:block text-5xl py-5 text-orange-800 decor-regular">
+                <span>🎼</span>&nbsp;
+                Zaloguj się!
+            </h1>
+            <form class=" flex flex-col gap-5 max-w-100 w-full" action="/login" method="POST">
+                @csrf
+                <input class="input" type="email" name="email" id="email" placeholder="jan.kowalski@gmail.com">
+                <input class="input" type="password" name="password" id="password" placeholder="Twoje hasło...">
 
-    public function handle_login(){
-        return $this->redirect('/');
-    }
-};
-?>
+                <div class="flex items-center">
+                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-<div class="flex flex-col gap-15 justify-center mx-auto mt-[15vh] max-w-fit">
-    <h1 class="text-7xl text-orange-950 decor-regular">Witaj w śpiewniku ♬</h1>
+                    <label for="remember" class="ml-2">
+                        Zapamiętaj mnie
+                    </label>
+                </div>
 
-    <form
-        wire:submit="handle_login"
-    class="flex flex-col gap-3 bg-white p-4 shadow-lg rounded-md w-80 mx-auto"
-     >
-        <h2 class="text-center text-4xl my-4 decor-regular">Zaloguj się</h2>
-        <input type="email" wire:model="email" class="input" placeholder="Twój email">
-        <input type="password" wire:model="password" class="input"  placeholder="Wpisz hasło">
+                <x-errors-panel />
 
-        <button type="submit" class="button mx-auto">Zaloguj</button>
-    </form>
-</div>
+                <button class="button mx-auto">Zaloguj</button>
+            </form>
+        </div>
+
+    </div>
+@endsection

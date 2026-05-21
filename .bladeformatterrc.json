@@ -1,0 +1,10 @@
+{
+    "wrapLineLength": 120,
+    "indentSize": 4,
+    "wrapAttributes": "force-expand-multiline",
+    "wrapAttributesMinAttrs": 2,
+    "sortTailwindcssClasses": true,
+    "endWithNewLine": true,
+    "bracketSameLine": false,
+    "formatBlade": true
+}

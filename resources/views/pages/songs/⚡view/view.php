@@ -7,6 +7,7 @@ use Livewire\Attributes\Computed;
 use App\Models\Song;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 new class extends Component {
     use WithFileUploads;
@@ -162,7 +163,7 @@ new class extends Component {
     public function cancelButtonHandler()
     {
         if ($this->song === null) {
-            return redirect('/songs/search');
+            return redirect()->back();
         }
 
         $this->editMode = false;
@@ -178,6 +179,6 @@ new class extends Component {
     public function removeSong()
     {
         $this->song?->delete();
-        return redirect('/songs/search');
+        return redirect()->route('songs.index');
     }
 };

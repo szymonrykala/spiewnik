@@ -20,7 +20,7 @@
 
 /* TAGS */
 .tag {
-    @apply flex w-fit items-center gap-2 bg-orange-700/10 px-4 py-1 rounded-2xl text-sm text-orange-900 hover:backdrop-brightness-90 cursor-pointer
+    @apply flex w-fit items-center gap-2 text-nowrap bg-orange-700/10 px-4 py-1 rounded-2xl text-sm text-orange-900 hover:backdrop-brightness-90 cursor-pointer
 }
 
 .tag--active {
@@ -53,7 +53,7 @@
 
 /* BUTTONS */
 .button {
-    @apply bg-orange-700/70 hover:backdrop-brightness-90 px-3 py-1 w-fit rounded-md text-sm font-semibold cursor-pointer text-orange-50 active:scale-95
+    @apply bg-orange-700/70 hover:backdrop-brightness-90 px-4 py-2 md:px-3 md:py-1 w-fit rounded-md text-sm font-semibold cursor-pointer text-orange-50 active:scale-95
 }
 
 .button--big {
@@ -65,6 +65,8 @@ nav>span>button, nav>span span {
     @apply text-sm bg-orange-700/70 border-0 text-orange-50
 }
 
+
+/* TEXT-EDITOR */
 .rich-editor p {
     @apply py-1
 }

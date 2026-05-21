@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>{{ $title ?? config('app.name') }}</title>
 
@@ -14,21 +17,32 @@
     @livewireStyles
 </head>
 
-<body class="w-full flex flex-col px-3 text-orange-950 bg-gray-200 items-stretch justify-between min-h-screen">
+<body class="flex min-h-screen w-full flex-col items-stretch justify-between bg-gray-200 p-1 text-orange-950 md:p-3">
 
-    <div class="flex justify-between container mx-auto items-center">
-        <div class="flex items-center p-2 py-3 gap-2 text-2xl decor-regular">
+    <div class="container mx-auto flex items-center justify-between">
+        <div class="decor-regular flex items-center gap-2 p-2 py-3 text-2xl">
             <span class="text-5xl text-orange-700">♬</span>
-            Śpiewnik
+            Śpiewnik Szymona
         </div>
 
-        <div></div>
+        <div>
+            @if (Auth::check())
+                <a href="{{ route('logout') }}">
+                    <span class="cursor-pointer px-1 text-3xl text-orange-700/50">
+                        🚀
+                    </span>
+                </a>
+            @endif
+        </div>
     </div>
 
     <livewire-navigation />
 
-    <main class="p-3 grow">
-        {{ $slot }}
+    <main class="grow p-3">
+        @if (isset($slot))
+            {{ $slot }}
+        @endif
+        @yield('content')
     </main>
 
     @livewireScripts

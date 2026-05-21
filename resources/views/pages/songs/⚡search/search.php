@@ -5,6 +5,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Url;
 use App\Models\Tag;
 use App\Models\Song;
+use App\Models\Performance;
 use Livewire\WithPagination;
 
 
@@ -27,6 +28,7 @@ new class extends Component {
     {
         return Song::query()
             ->with('tags')
+            ->whereNotIn('id', $this->assignedPerformanceSongs()->pluck('id'))
             ->withCount('performances')
             ->orderBy('performances_count', 'desc')
             ->simplePaginate(15);
@@ -40,6 +42,7 @@ new class extends Component {
         }
 
         return Song::query()->with('tags')
+            ->whereNotIn('id', $this->assignedPerformanceSongs()->pluck('id'))
             ->when($this->search, function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%')
                     ->orWhere('lyrics', 'like', '%' . $this->search . '%');
@@ -59,7 +62,7 @@ new class extends Component {
             return collect();
         }
 
-        return \App\Models\Performance::find($this->performanceIdAssignment)
+        return Performance::find($this->performanceIdAssignment)
             ?->songs()
             ->orderBy('performance_songs.position')
             ->get();
@@ -102,14 +105,22 @@ new class extends Component {
             return;
         }
 
-        $songsCount = \App\Models\Performance::find($this->performanceIdAssignment)->songs()->count();
+        $songsCount = Performance::find($this->performanceIdAssignment)->songs()->count();
 
         Song::find($songId)->performances()->syncWithoutDetaching([
             $this->performanceIdAssignment => [
                 'position' => $songsCount + 1,
             ]
         ]);
+    }
 
-        $this->dispatch('song-assigned-to-performance', ['songId' => $songId]);
+    function unassignFromPerformance(int $songId)
+    {
+        if (!$this->performanceIdAssignment) {
+            return;
+        }
+
+        Song::find($songId)->performances()->detach($this->performanceIdAssignment);
+        // unset($this->assignedPerformanceSongs);
     }
 };

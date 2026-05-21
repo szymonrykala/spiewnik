@@ -22,28 +22,39 @@ new class extends Component {
 ?>
 
 <div class="container flex flex-col">
-    <div class="flex justify-between items-center">
-        <h1 class="decor-regular text-5xl text-left my-7">Występy:</h1>
-
-        <a wire:navigate href="/performances/create">
-        <span class="text-5xl block text-orange-700 hover:scale-105 transition-transform">
-                ⊕
-            </span>
-        </a>
+    <div class="flex items-center justify-between">
+        <h1 class="decor-regular my-7 text-left text-5xl">Występy:</h1>
     </div>
 
     <div>
-        <h2 class="text-3xl label text-left mb-3">Przyszłe występy:</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h2 class="label mb-3 flex items-center justify-between text-left text-3xl">
+            <span>
+                Przyszłe występy:
+            </span>
+            @admin
+                <a
+                    wire:navigate
+                    href="/performances/create"
+                >
+                    <span class="block text-4xl text-orange-700 transition-transform hover:scale-105">
+                        ⊕
+                    </span>
+                </a>
+            @endadmin
+        </h2>
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($this->futurePerformances as $performance)
-                <li class="rounded-md bg-gray-100 px-4 py-3 group">
+                <li class="group rounded-md bg-gray-100 px-4 py-3">
                     <div class="flex flex-col gap-1">
-                        <h3 class="text-3xl decor-regular">
+                        <h3 class="decor-regular text-3xl">
                             <span class="text-orange-800">
                                 🎤
                             </span>
-                            <a class="group-hover:text-orange-800" href="/performances/{{ $performance->id }}"
-                                wire:navigate>
+                            <a
+                                class="group-hover:text-orange-800"
+                                href="/performances/{{ $performance->id }}"
+                                wire:navigate
+                            >
                                 {{ $performance->name }}
                             </a>
                         </h3>
@@ -59,20 +70,23 @@ new class extends Component {
         </div>
     </div>
 
-    <hr class="text-orange-800/30 my-10">
+    <hr class="my-10 text-orange-800/30">
 
     <div>
-        <h2 class="text-3xl label text-left mb-3">Minione występy:</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h2 class="label mb-3 text-left text-3xl">Minione występy:</h2>
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($this->pastPerformances as $performance)
-                <li class="rounded-md bg-gray-100 opacity-50 px-4 py-3 group">
+                <li class="group rounded-md bg-gray-100 px-4 py-3 opacity-50">
                     <div class="flex flex-col gap-1">
-                        <h3 class="text-3xl decor-regular">
+                        <h3 class="decor-regular text-3xl">
                             <span class="text-orange-800">
                                 🎤
                             </span>
-                            <a class="group-hover:text-orange-800" href="/performances/{{ $performance->id }}"
-                                wire:navigate>
+                            <a
+                                class="group-hover:text-orange-800"
+                                href="/performances/{{ $performance->id }}"
+                                wire:navigate
+                            >
                                 {{ $performance->name }}
                             </a>
                         </h3>

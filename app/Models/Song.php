@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Song extends Model
 {
     protected $fillable = ['title', 'lyrics', 'yt_link', 'ms_link', 'photo_url', 'is_public'];
@@ -16,7 +17,7 @@ class Song extends Model
     {
         static::creating(function ($song) {
             if (auth()->check()) {
-                $song->user_id = auth()->id();
+                $song->created_by = auth()->id();
                 $song->updated_by = auth()->id();
             }
         });
@@ -48,5 +49,10 @@ class Song extends Model
     public function updatedBy()
     {
         return $this->belongsTo(User::class, 'updated_by');
+    }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 }
