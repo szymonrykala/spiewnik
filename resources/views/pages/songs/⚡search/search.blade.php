@@ -103,6 +103,7 @@
                     <x-song-list-item
                         wire:key="song-{{ $song->id }}"
                         :song=$song
+                        :activeTags=$active_tags
                         assignToPerformance="assignToPerformance({{ $song->id }})"
                         :performance-id=$performanceIdAssignment
                     />

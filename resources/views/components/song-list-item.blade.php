@@ -1,10 +1,4 @@
-@props([
-    'song',
-    'performanceId' => null,
-    'activeTags' => [],
-    'assignToPerformance' => null,
-    'removeAssignment' => null,
-])
+@props(['song', 'activeTags', 'performanceId' => null, 'assignToPerformance' => null, 'removeAssignment' => null])
 
 @php
     if ($removeAssignment) {
@@ -43,12 +37,12 @@
 
     <div class="flex items-stretch gap-1">
         <div class="flex flex-col gap-1 overflow-hidden">
-            <h3 class="text-lg">
+            <h3 class="flex items-center gap-1 text-lg">
                 <span class="text-orange-800">
                     ♫
                 </span>
                 <a
-                    class="text-orange-900 group-hover:text-orange-700"
+                    class="w-full font-semibold text-orange-900 group-hover:text-orange-700"
                     href="/songs/{{ $song->id }}"
                     wire:navigate
                 >
@@ -62,7 +56,7 @@
 
             <div class="scrollbar-none flex gap-2 overflow-scroll text-sm">
                 @foreach ($song->tags as $tag)
-                    <div class="tag {{ in_array($tag->name, $activeTags) ? 'tag--active' : '' }}">
+                    <div class="tag tag--secondary {{ in_array($tag->name, $activeTags) ? 'tag--active' : '' }}">
                         {{ $tag->name }}
                     </div>
                 @endforeach

@@ -27,6 +27,14 @@
     @apply bg-orange-700/70 text-orange-100
 }
 
+.tag--secondary {
+    @apply bg-orange-700/5 text-orange-900/60
+}
+
+.tag--active.tag--secondary {
+    @apply bg-orange-700/20 text-orange-900/80
+}
+
 .tag svg {
     @apply fill-red-500
 }
