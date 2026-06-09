@@ -29,23 +29,40 @@
                         <span wire:click="toggle_tag('{{ $tag }}')">
                             {{ $tag }}
                         </span>
-                        @admin
-                            <span class="hidden transition group-hover:block">
+
+                        @if ($tagsEditMode)
+                            <span
+                                wire:click="removeTag('{{ $tag }}')"
+                                class="hover:scale-120"
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     height="18px"
                                     viewBox="0 -960 960 960"
                                     width="18px"
-                                    wire:click="removeTag('{{ $tag }}')"
                                 >
                                     <path
                                         d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
                                     />
                                 </svg>
                             </span>
-                        @endadmin
+                        @endif
                     </li>
                 @endforeach
+                @admin
+                    <li>
+                        <button
+                            wire:click="$toggle('tagsEditMode')"
+                            class="cursor-pointer text-2xl transition-transform hover:rotate-12"
+                        >
+                            @if ($tagsEditMode)
+                                ✅
+                            @else
+                                ✏️
+                            @endif
+                        </button>
+                    </li>
+                @endadmin
             </ul>
 
             @admin

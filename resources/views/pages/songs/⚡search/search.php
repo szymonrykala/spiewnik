@@ -23,6 +23,8 @@ new class extends Component {
     #[Url]
     public string $search = '';
 
+    public bool $tagsEditMode = False;
+
 
     private function mostlyUsedSongs()
     {
