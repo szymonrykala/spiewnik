@@ -71,7 +71,10 @@ new class extends Component {
     #[Computed]
     public function allTags()
     {
-        return Tag::all()->pluck('name')->toArray();
+        return Tag::withCount('songs')
+            ->orderBy('songs_count', 'desc')
+            ->pluck('name')
+            ->toArray();
     }
 
     function toggle_tag(string $tag)
