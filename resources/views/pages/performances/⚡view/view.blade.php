@@ -1,4 +1,4 @@
-<article class="container flex flex-col gap-6">
+<article class="container flex flex-col gap-6 rounded-md bg-gray-100 p-3 shadow-md md:p-5 lg:p-7">
 
     @admin
         <x-edit-toolbar
@@ -11,7 +11,7 @@
     @endadmin
 
     <section class="flex flex-col gap-4">
-        <div class="decor-regular text-5xl md:text-6xl">
+        <div class="decor-regular my-5 text-5xl md:text-6xl">
             @if ($editMode)
                 <input
                     type="text"
@@ -73,11 +73,11 @@
         </div>
     @else
         <section class="flex flex-col gap-10">
-            <ul class="scrollbar-none flex gap-1 overflow-x-auto rounded-md bg-gray-300 p-2 pb-0">
+            <ul class="scrollbar-none flex gap-1 overflow-x-auto rounded-md bg-gray-200 p-2 pb-0">
                 @foreach ($this->performanceSongs as $song)
                     <li
                         wire:key="song-label-{{ $song->id }}"
-                        class="{{ $currentSongId == $song->id ? 'bg-gray-200' : 'hover:bg-gray-200/50' }} flex cursor-pointer items-center gap-2 text-nowrap rounded-t-lg px-4 py-2"
+                        class="{{ $currentSongId == $song->id ? 'bg-gray-100' : 'hover:bg-gray-100/50' }} flex cursor-pointer items-center gap-2 text-nowrap rounded-t-lg px-4 py-2"
                         wire:click="switchSongView({{ $song->id }})"
                     >
                         <span>{{ $song->title }}</span>

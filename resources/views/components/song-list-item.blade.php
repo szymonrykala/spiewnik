@@ -36,7 +36,7 @@
     @endif --}}
 
     <div class="flex items-stretch gap-1">
-        <div class="flex flex-col gap-1 overflow-hidden">
+        <div class="flex flex-col gap-1 overflow-hidden w-full">
             <h3 class="flex items-center gap-1 text-lg">
                 <span class="text-orange-800">
                     ♫
@@ -63,7 +63,7 @@
             </div>
         </div>
         @if ($performanceId && $assignToPerformance)
-            <div class="flex rounded-md bg-green-200/30 p-1 md:p-2">
+            <div class="flex rounded-md bg-green-200/30 px-2">
                 <button
                     title="Dodaj do występu"
                     wire:click="{{ $assignToPerformance }}"
@@ -73,7 +73,7 @@
                 </button>
             </div>
         @elseif($removeAssignment)
-            <div class="flex rounded-md bg-red-200/30 p-1 md:p-2">
+            <div class="flex rounded-md bg-red-200/30 px-2">
                 <button
                     title="Usuń z występu"
                     wire:click="{{ $removeAssignment }}"
