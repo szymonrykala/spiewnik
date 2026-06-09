@@ -1,4 +1,4 @@
-<article class="container mx-auto flex flex-col gap-10">
+<article class="container mx-auto flex flex-col gap-10 rounded-md bg-gray-100 p-3 shadow-md md:p-5 lg:p-7">
 
     @admin
         <x-edit-toolbar
@@ -73,15 +73,6 @@
         @error('newTag')
             <span class="error">{{ $message }}</span>
         @enderror
-        @if ($song)
-            <div class="label">
-                <p>Dodane przez {{ $song->createdBy->name ?? 'Anonim' }} dnia
-                    {{ $song->created_at->format('d.m.Y H:i') }}
-                </p>
-                <p>Ostatnia edycja przez {{ $song->updatedBy->name ?? 'Anonim' }} dnia
-                    {{ $song->updated_at->format('d.m.Y H:i') }}</p>
-            </div>
-        @endif
     </section>
 
     {{-- NAGRANIE --}}
@@ -115,7 +106,10 @@
     </section>
 
     {{-- ZDJĘCIE --}}
-    <section wire:show="editMode || savedPhotoPath" class="space-y-2">
+    <section
+        wire:show="editMode || savedPhotoPath"
+        class="space-y-2"
+    >
         <div class="block w-fit cursor-pointer">
             <x-image
                 src="{{ $this->displayImage }}"
@@ -195,6 +189,18 @@
                 @endif
             </ul>
         </section>
+
+        @if ($song)
+            <section>
+                <div class="label">
+                    <p>Dodane przez {{ $song->createdBy->name ?? 'Anonim' }} dnia
+                        {{ $song->created_at->format('d.m.Y H:i') }}
+                    </p>
+                    <p>Ostatnia edycja przez {{ $song->updatedBy->name ?? 'Anonim' }} dnia
+                        {{ $song->updated_at->format('d.m.Y H:i') }}</p>
+                </div>
+            </section>
+        @endif
     @endif
 
 </article>

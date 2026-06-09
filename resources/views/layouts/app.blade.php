@@ -38,7 +38,7 @@
 
     <livewire-navigation />
 
-    <main class="grow p-3">
+    <main class="grow p-1 md:p-3">
         @if (isset($slot))
             {{ $slot }}
         @endif
