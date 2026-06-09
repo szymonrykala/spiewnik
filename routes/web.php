@@ -16,7 +16,7 @@ Route::group([], function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::livewire('/', 'pages::main')->name('home');
+    Route::get('/', fn()=> redirect()->route('songs.index'));
 
     Route::livewire('/songs', 'pages::songs.search')->name('songs.index');
     Route::livewire('/songs/create', 'pages::songs.view')->name('songs.create');
