@@ -163,7 +163,7 @@ new class extends Component {
     public function cancelButtonHandler()
     {
         if ($this->song === null) {
-            return redirect()->back();
+            return redirect()->route('songs.index');
         }
 
         $this->editMode = false;
